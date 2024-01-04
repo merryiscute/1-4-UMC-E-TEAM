@@ -79,7 +79,7 @@ public class LiquorController {
      * 메인페이지 - 카테고리 선택
      * categoryID를 이용해서 home 띄우기
      */
-    @GetMapping("/{categoryId}")
+    @GetMapping("/category/{categoryId}")
     public ApiResponse<List<LiquorResponseDTO.liquorDetailDTO>> home2(@PathVariable Long categoryId){
         List<Liquor> liquors = liquorService.findByCategoryId(categoryId);
         return ApiResponse.onSuccess(LiquorConverter.toInquiryHomeLiquorDTO(liquors));
