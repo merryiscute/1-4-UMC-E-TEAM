@@ -8,6 +8,7 @@ import hackerthon.liquor.repository.CommentRepository;
 import hackerthon.liquor.repository.LiquorCombiPostRepository;
 import hackerthon.liquor.repository.LiquorFoodPostRepository;
 import hackerthon.liquor.repository.LiquorRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -80,5 +81,11 @@ public class LiquorServiceImpl implements LiquorService{
     @Override
     public Optional<LiquorCombiPost> findById(Long postId) {
         return liquorCombiPostRepository.findById(postId);
+      
+    @Override
+    public List<Liquor> getLiquorList() {
+        List<Liquor> liquorList = liquorRepository.findAll();
+        return liquorList;
+
     }
 }

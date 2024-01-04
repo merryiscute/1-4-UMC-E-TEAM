@@ -33,5 +33,13 @@ public class LiquorCombiPost extends BaseEntity {
     @Column(nullable = false, length = 40)
     private String picture;
 
+
     private String tag;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+
+
 }

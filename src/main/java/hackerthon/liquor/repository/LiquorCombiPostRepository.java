@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface LiquorCombiPostRepository extends JpaRepository<LiquorCombiPost, Long> {
-
+  
+    Optional<LiquorCombiPost> findAllByCategoryId(Long id);
 }

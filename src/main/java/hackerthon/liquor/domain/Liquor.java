@@ -57,4 +57,5 @@ public class Liquor extends BaseEntity {
 
     @Column(nullable = false, length = 40)
     private String volume;
+
 }

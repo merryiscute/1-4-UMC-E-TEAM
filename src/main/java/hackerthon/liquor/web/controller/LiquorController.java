@@ -17,6 +17,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
+import hackerthon.liquor.service.LiquorService.LiquorService;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +28,8 @@ import java.util.List;
 
 @RestController
 @Validated
-@RequiredArgsConstructor
 @RequestMapping("/liquor")
+@RequiredArgsConstructor
 public class LiquorController {
 
     private final LiquorService liquorService;
@@ -64,5 +66,28 @@ public class LiquorController {
         List<Comment> commentList = liquorService.getLFComment(postId);
 
         return ApiResponse.onSuccess(LiquorConverter.toLiquorFoodPostDTO(liquorFoodPost, commentList));
+
+    /**
+     * 메인페이지
+     * home 띄우기
+     */
+    @GetMapping
+    public ApiResponse<List<LiquorResponseDTO.InquiryHomeLiquorDTO>> home(){
+
+        List<Liquor> liquors = liquorService.findAll();
+        return ApiResponse.onSuccess(LiquorConverter.toInquiryHomeLiquorDTO(liquors));
+
+    }
+
+
+    /**
+     * 메인페이지 - 카테고리 선택
+     * categoryID를 이용해서 home 띄우기
+     */
+    @GetMapping("/{categoryId}")
+    public ApiResponse<List<LiquorResponseDTO.InquiryHomeLiquorDTO>> home2(@PathVariable Long categoryId){
+        List<Liquor> liquors = liquorService.findByCategoryId(categoryId);
+        return ApiResponse.onSuccess(LiquorConverter.toInquiryHomeLiquorDTO(liquors));
+
     }
 }

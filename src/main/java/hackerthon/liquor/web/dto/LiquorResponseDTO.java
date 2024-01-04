@@ -2,6 +2,7 @@ package hackerthon.liquor.web.dto;
 
 import hackerthon.liquor.domain.Comment;
 import hackerthon.liquor.validation.anotation.ExistPost;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,11 +12,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class LiquorResponseDTO {
+
     @Builder
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
     public static class liquorDetailDTO{
+        Long Liquor_Id;
         String name;
         String percent;
         String price;
@@ -65,5 +68,6 @@ public class LiquorResponseDTO {
     public static class commentDTO{
         Integer writer;
         String contents;
+        String tag;
     }
 }

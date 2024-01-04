@@ -90,5 +90,20 @@ public class LiquorConverter {
                 .likes(liquorFoodPost.getLikes())
                 .commentList(commentDTOList)
                 .build();
+      
+    public static List<LiquorResponseDTO.InquiryHomeLiquorDTO> toInquiryHomeLiquorDTO(List<Liquor> liquors) {
+
+        return liquors.stream()
+                .map(liquor ->
+                        LiquorResponseDTO.InquiryHomeLiquorDTO.builder()
+                                .Liquor_Id(liquor.getId())
+                                .name(liquor.getName())
+                                .percent(liquor.getPercent())
+                                .price(liquor.getPrice())
+                                .tag(liquor.getTag())
+                                .volume(liquor.getVolume())
+                                .build()
+                ).collect(Collectors.toList());
+
     }
 }
