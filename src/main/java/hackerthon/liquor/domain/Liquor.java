@@ -52,7 +52,6 @@ public class Liquor extends BaseEntity {
     @Column(nullable = false, length = 40)
     private String picture;
 
-
     @Column(nullable = false, length = 40)
     private String tag;
 

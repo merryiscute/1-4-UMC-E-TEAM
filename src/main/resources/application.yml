@@ -1,6 +1,6 @@
 spring:
-  datasource:<<<<<<< HEAD
-    url: jdbc:mysql://hackathondb.c2sx5hwxhgqe.ap-northeast-2.rds.amazonaws.com:3306/hackathonD
+  datasource:
+    url: jdbc:mysql://hackathondb.c2sx5hwxhgqe.ap-northeast-2.rds.amazonaws.com:3306/hackathonDB
     username: root
     password: hackathonteame
     driver-class-name: com.mysql.cj.jdbc.Driver

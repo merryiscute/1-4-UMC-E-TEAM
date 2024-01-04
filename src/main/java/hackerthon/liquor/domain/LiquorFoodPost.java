@@ -42,4 +42,5 @@ public class LiquorFoodPost extends BaseEntity {
     @Column(nullable = false, length = 40)
     private String picture;
 
+    private String tag;
 }
