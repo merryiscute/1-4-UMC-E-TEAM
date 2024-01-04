@@ -23,7 +23,7 @@ public class LiquorCombiPost extends BaseEntity {
     private List<Comment> commentList = new ArrayList<>();
 
     @Column(nullable = false, length = 40)
-    private String name;
+    private String title;
 
     @Column(nullable = false, length = 40)
     private String contents;
@@ -33,9 +33,9 @@ public class LiquorCombiPost extends BaseEntity {
     @Column(nullable = false, length = 40)
     private String picture;
 
-
-
-
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
 
 }
