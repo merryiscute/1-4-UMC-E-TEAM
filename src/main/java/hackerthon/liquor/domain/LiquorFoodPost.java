@@ -31,7 +31,7 @@ public class LiquorFoodPost extends BaseEntity {
     @JoinColumn(name = "liquor_id")
     private Liquor liquor;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false)
     private String title;
 
     @Column(nullable = false)
@@ -39,7 +39,7 @@ public class LiquorFoodPost extends BaseEntity {
 
     private Integer likes;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false)
     private String picture;
 
     private String tag;

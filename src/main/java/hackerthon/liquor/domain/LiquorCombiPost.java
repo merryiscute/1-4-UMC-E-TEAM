@@ -21,18 +21,18 @@ public class LiquorCombiPost extends BaseEntity {
     @OneToMany(mappedBy = "liquorCombiPost", cascade = CascadeType.ALL)
     private List<Comment> commentList = new ArrayList<>();
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false)
     private String contents;
 
     private Integer likes;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false)
     private String picture;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false)
     private String tag;
 
     @ManyToOne(fetch = FetchType.LAZY)

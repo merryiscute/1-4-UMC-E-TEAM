@@ -36,19 +36,19 @@ public class Liquor extends BaseEntity {
     @OneToMany(mappedBy = "liquor", cascade = CascadeType.ALL)
     private List<LiquorFoodPost> liquorFoodPostList = new ArrayList<>();
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false)
     private String percent;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false)
     private String price;
 
     @Column(nullable = false)
     private String description;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false)
     private String picture;
 
     @Column(nullable = false, length = 40)

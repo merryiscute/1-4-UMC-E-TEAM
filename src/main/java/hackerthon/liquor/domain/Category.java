@@ -19,10 +19,10 @@ public class Category extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false)
     private String name1;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false)
     private String name2;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")

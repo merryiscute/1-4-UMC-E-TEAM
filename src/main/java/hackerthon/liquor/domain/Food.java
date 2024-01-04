@@ -19,10 +19,10 @@ public class Food extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false)
     private String description;
 
     @OneToMany(mappedBy = "food", cascade = CascadeType.ALL)
