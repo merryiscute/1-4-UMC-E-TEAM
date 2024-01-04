@@ -1,6 +1,5 @@
 package hackerthon.liquor.web.controller;
 
-
 import hackerthon.liquor.apiPayload.ApiResponse;
 import hackerthon.liquor.converter.LiquorConverter;
 import hackerthon.liquor.domain.Liquor;
@@ -44,8 +43,4 @@ public class LiquorController {
         return ApiResponse.onSuccess(LiquorConverter.toInquiryHomeLiquorDTO(liquors));
 
     }
-
-
-
-
 }
