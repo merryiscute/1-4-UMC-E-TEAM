@@ -22,7 +22,7 @@ public class LiquorCombiController {
     private final LiquorCombiService liquorCombiService;
 
     @PostMapping
-    public ApiResponse<LiquorCombiResponseDTO.JoinResultDTO> createPost(LiquorCombiRequestDTO.MakeDTO request){
+    public ApiResponse<LiquorCombiResponseDTO.JoinResultDTO> createPost(@RequestBody LiquorCombiRequestDTO.MakeDTO request){
         LiquorCombiPost liquorCombiPost = liquorCombiService.makePost(request);
         return ApiResponse.onSuccess(LiquorCombiConverter.createPostDTO(liquorCombiPost));
     }
