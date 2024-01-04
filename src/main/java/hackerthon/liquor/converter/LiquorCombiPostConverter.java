@@ -17,6 +17,7 @@ public class LiquorCombiPostConverter {
                                 .title(liquorCombiPost.getTitle())
                                 .content(liquorCombiPost.getContents())
                                 .likes(liquorCombiPost.getLikes())
+                                .picture(liquorCombiPost.getPicture())
                                 .build()
                 ).collect(Collectors.toList());
 

@@ -16,6 +16,7 @@ public class LiquorFoodPostResponseDTO {
         String title;
         String tag;
         Integer likes;
+        String picture;
 
 
         @Override

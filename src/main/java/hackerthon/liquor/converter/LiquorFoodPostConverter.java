@@ -19,6 +19,7 @@ public class LiquorFoodPostConverter {
                                 .likes(liquorFoodPost.getLikes())
                                 .tag(liquorFoodPost.getLiquor().getTag())
                                 .title(liquorFoodPost.getTitle())
+                                .picture(liquorFoodPost.getPicture())
                                 .build()
                 ).collect(Collectors.toList());
 

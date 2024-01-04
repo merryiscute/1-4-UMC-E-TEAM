@@ -17,6 +17,7 @@ public class LiquorCombiPostResponseDTO {
         String content;
         String tag;
         Integer likes;
+        String picture;
     }
 
 }
