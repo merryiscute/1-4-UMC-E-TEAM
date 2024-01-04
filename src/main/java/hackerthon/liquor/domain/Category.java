@@ -28,4 +28,8 @@ public class Category extends BaseEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private List<Liquor> liquorList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private List<LiquorCombiPost> liquorCombiPostList = new ArrayList<>();
+
+
 }
