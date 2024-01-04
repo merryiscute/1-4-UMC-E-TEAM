@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Food extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,6 +25,10 @@ public class Food extends BaseEntity {
     @Column(nullable = false, length = 40)
     private String description;
 
-    @OneToMany(mappedBy = "Food", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "food", cascade = CascadeType.ALL)
     private List<LiquorFoodPost> liquorFoodPostList = new ArrayList<>();
+
+    @Column(nullable = false, length = 40)
+    private String tag;
+
 }
