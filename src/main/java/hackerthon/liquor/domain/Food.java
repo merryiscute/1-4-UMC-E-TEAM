@@ -30,5 +30,4 @@ public class Food extends BaseEntity {
 
     @Column(nullable = false, length = 40)
     private String tag;
-
 }

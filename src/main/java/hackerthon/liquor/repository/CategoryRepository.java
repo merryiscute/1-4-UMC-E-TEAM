@@ -1,6 +1,5 @@
 package hackerthon.liquor.repository;
 
-
 import org.springframework.stereotype.Repository;
 import hackerthon.liquor.domain.Category;
 import org.springframework.data.jpa.repository.JpaRepository;

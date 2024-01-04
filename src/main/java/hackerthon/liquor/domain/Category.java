@@ -31,4 +31,6 @@ public class Category extends BaseEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private List<LiquorCombiPost> liquorCombiPostList = new ArrayList<>();
 
+
+
 }

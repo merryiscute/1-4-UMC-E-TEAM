@@ -1,5 +1,6 @@
 package hackerthon.liquor.domain.mapping;
 
+import hackerthon.liquor.domain.Category;
 import hackerthon.liquor.domain.Liquor;
 import hackerthon.liquor.domain.LiquorCombiPost;
 import hackerthon.liquor.domain.common.BaseEntity;
@@ -24,6 +25,8 @@ public class LiquorCombi extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "liquorCombiPost_id")
     private LiquorCombiPost liquorCombiPost;
+
+
 
 
 

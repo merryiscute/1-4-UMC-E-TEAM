@@ -1,6 +1,5 @@
 package hackerthon.liquor.domain;
 
-import hackerthon.liquor.apiPayload.code.BaseErrorCode;
 import hackerthon.liquor.domain.common.BaseEntity;
 import hackerthon.liquor.domain.mapping.LiquorCombi;
 import lombok.*;
