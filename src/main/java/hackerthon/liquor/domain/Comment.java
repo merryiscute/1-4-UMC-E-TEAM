@@ -23,7 +23,7 @@ public class Comment extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "liquorFood_id")
-    private LiquorFoodPost LiquorFoodPost;
+    private LiquorFoodPost liquorFoodPost;
 
     @Column(nullable = false)
     private String contents;
