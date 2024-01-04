@@ -32,7 +32,7 @@ public class LiquorFoodPost extends BaseEntity {
     private Liquor liquor;
 
     @Column(nullable = false, length = 40)
-    private String name;
+    private String title;
 
     @Column(nullable = false)
     private String contents;
@@ -41,4 +41,6 @@ public class LiquorFoodPost extends BaseEntity {
 
     @Column(nullable = false, length = 40)
     private String picture;
+
+    private String tag;
 }

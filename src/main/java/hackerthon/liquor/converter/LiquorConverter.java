@@ -1,6 +1,7 @@
 package hackerthon.liquor.converter;
 
 import hackerthon.liquor.apiPayload.ApiResponse;
+import hackerthon.liquor.domain.Comment;
 import hackerthon.liquor.domain.Liquor;
 import hackerthon.liquor.domain.LiquorCombiPost;
 import hackerthon.liquor.domain.LiquorFoodPost;
@@ -15,7 +16,7 @@ public class LiquorConverter {
     public static LiquorResponseDTO.liquorCombiPostDTO toLiquorCombiPostDTO(LiquorCombiPost liquorCombiPost){
         return LiquorResponseDTO.liquorCombiPostDTO.builder()
                 .id(liquorCombiPost.getId())
-                .name(liquorCombiPost.getName())
+                .title(liquorCombiPost.getTitle())
                 .likes(liquorCombiPost.getLikes())
                 .picture(liquorCombiPost.getPicture())
                 .build();
@@ -24,7 +25,7 @@ public class LiquorConverter {
     public static LiquorResponseDTO.liquorFoodPostDTO toLiquorFoodPostDTO(LiquorFoodPost liquorFoodPost){
         return LiquorResponseDTO.liquorFoodPostDTO.builder()
                 .id(liquorFoodPost.getId())
-                .name(liquorFoodPost.getName())
+                .title(liquorFoodPost.getTitle())
                 .likes(liquorFoodPost.getLikes())
                 .picture(liquorFoodPost.getPicture())
                 .build();
@@ -52,5 +53,40 @@ public class LiquorConverter {
                 .liquorFoodPostDTOList(LFDTOList)
                 .build();
 
+    }
+
+    public static LiquorResponseDTO.commentDTO toCommentDTO(Comment comment){
+        return LiquorResponseDTO.commentDTO.builder()
+                .writer(comment.getWriter())
+                .contents(comment.getContents())
+                .build();
+    }
+
+    public static LiquorResponseDTO.liquorCombiPostDTO toLiquorCombiPostDTO(LiquorCombiPost liquorCombiPost,
+                                                                                List<Comment> commentList){
+        List<LiquorResponseDTO.commentDTO> commentDTOList = commentList.stream()
+                .map(LiquorConverter::toCommentDTO).collect(Collectors.toList());
+
+        return LiquorResponseDTO.liquorCombiPostDTO.builder()
+                .title(liquorCombiPost.getTitle())
+                .tag(liquorCombiPost.getTag())
+                .contents(liquorCombiPost.getContents())
+                .likes(liquorCombiPost.getLikes())
+                .commentList(commentDTOList)
+                .build();
+    }
+
+    public static LiquorResponseDTO.liquorFoodPostDTO toLiquorFoodPostDTO(LiquorFoodPost liquorFoodPost,
+                                                                                List<Comment> commentList){
+        List<LiquorResponseDTO.commentDTO> commentDTOList = commentList.stream()
+                .map(LiquorConverter::toCommentDTO).collect(Collectors.toList());
+
+        return LiquorResponseDTO.liquorFoodPostDTO.builder()
+                .title(liquorFoodPost.getTitle())
+                .tag(liquorFoodPost.getTag())
+                .contents(liquorFoodPost.getContents())
+                .likes(liquorFoodPost.getLikes())
+                .commentList(commentDTOList)
+                .build();
     }
 }

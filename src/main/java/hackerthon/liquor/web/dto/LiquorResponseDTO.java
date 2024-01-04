@@ -1,5 +1,6 @@
 package hackerthon.liquor.web.dto;
 
+import hackerthon.liquor.domain.Comment;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -32,10 +33,13 @@ public class LiquorResponseDTO {
     @AllArgsConstructor
     public static class liquorCombiPostDTO{
         Long id;
-        String name;
+        String title;
         String contents;
         Integer likes;
         String picture;
+        String tag;
+
+        List<commentDTO> commentList;
     }
 
     @Builder
@@ -44,9 +48,21 @@ public class LiquorResponseDTO {
     @AllArgsConstructor
     public static class liquorFoodPostDTO{
         Long id;
-        String name;
+        String title;
         String contents;
         Integer likes;
         String picture;
+        String tag;
+
+        List<commentDTO> commentList;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class commentDTO{
+        Integer writer;
+        String contents;
     }
 }
