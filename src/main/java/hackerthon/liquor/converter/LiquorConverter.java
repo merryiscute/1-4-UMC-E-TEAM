@@ -55,6 +55,21 @@ public class LiquorConverter {
 
     }
 
+    public static List<LiquorResponseDTO.liquorDetailDTO> toInquiryHomeLiquorDTO(List<Liquor> liquors) {
+
+        return liquors.stream()
+                .map(liquor ->
+                        LiquorResponseDTO.liquorDetailDTO.builder()
+                                .Liquor_Id(liquor.getId())
+                                .name(liquor.getName())
+                                .percent(liquor.getPercent())
+                                .price(liquor.getPrice())
+                                .tag(liquor.getTag())
+                                .volume(liquor.getVolume())
+                                .build()
+                ).collect(Collectors.toList());
+
+    }
     public static LiquorResponseDTO.commentDTO toCommentDTO(Comment comment){
         return LiquorResponseDTO.commentDTO.builder()
                 .writer(comment.getWriter())
@@ -78,7 +93,7 @@ public class LiquorConverter {
     }
 
     public static LiquorResponseDTO.liquorFoodPostDTO toLiquorFoodPostDTO(LiquorFoodPost liquorFoodPost,
-                                                                                List<Comment> commentList){
+                                                                                List<Comment> commentList) {
         List<LiquorResponseDTO.commentDTO> commentDTOList = commentList.stream()
                 .map(LiquorConverter::toCommentDTO).collect(Collectors.toList());
 
@@ -90,12 +105,13 @@ public class LiquorConverter {
                 .likes(liquorFoodPost.getLikes())
                 .commentList(commentDTOList)
                 .build();
-      
-    public static List<LiquorResponseDTO.InquiryHomeLiquorDTO> toInquiryHomeLiquorDTO(List<Liquor> liquors) {
+    }
+
+    public static List<LiquorResponseDTO.liquorDetailDTO> toliquorDetailDTO(List<Liquor> liquors) {
 
         return liquors.stream()
                 .map(liquor ->
-                        LiquorResponseDTO.InquiryHomeLiquorDTO.builder()
+                        LiquorResponseDTO.liquorDetailDTO.builder()
                                 .Liquor_Id(liquor.getId())
                                 .name(liquor.getName())
                                 .percent(liquor.getPercent())

@@ -4,7 +4,7 @@ package hackerthon.liquor.web.controller;
 import hackerthon.liquor.apiPayload.ApiResponse;
 import hackerthon.liquor.converter.LiquorFoodPostConverter;
 import hackerthon.liquor.domain.LiquorFoodPost;
-import hackerthon.liquor.service.LiquorFoodPostService.LiquorFoodPostService;
+import hackerthon.liquor.service.LiquorFoodPostService;
 import hackerthon.liquor.web.dto.LiquorFoodPostResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

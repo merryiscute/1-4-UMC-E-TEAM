@@ -1,10 +1,9 @@
-package hackerthon.liquor.service.LiquorFoodPostService;
+package hackerthon.liquor.service;
 
 import hackerthon.liquor.domain.Liquor;
 import hackerthon.liquor.domain.LiquorFoodPost;
 import hackerthon.liquor.repository.LiquorFoodPostRepository;
 import hackerthon.liquor.repository.LiquorRepository;
-import hackerthon.liquor.web.dto.LiquorFoodPostResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

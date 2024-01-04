@@ -19,9 +19,10 @@ import java.util.List;
 public class LiquorCombiPostController {
 
     private final LiquorCombiPostService liquorCombiPostService;
+
     //전체 조회
     @GetMapping("")
-    public ApiResponse<List<LiquorCombiPostResponseDTO.LiquirCombiDTO>> getList(){
+    public ApiResponse<List<LiquorCombiPostResponseDTO.LiquirCombiDTO>> getList() {
         List<LiquorCombiPost> liquorCombiPostList = liquorCombiPostService.findAll();
 
         List<LiquorCombiPostResponseDTO.LiquirCombiDTO> liquorCombiPosts = LiquorCombiPostConverter.toLiquorCombiDTO(liquorCombiPostList);
@@ -29,9 +30,11 @@ public class LiquorCombiPostController {
     }
 
     @GetMapping("/{category_id}")
-    public ApiResponse<List<LiquorCombiPostResponseDTO.LiquirCombiDTO>> getCategoryList(@PathVariable Long category_id){
+    public ApiResponse<List<LiquorCombiPostResponseDTO.LiquirCombiDTO>> getCategoryList(@PathVariable Long category_id) {
         List<LiquorCombiPost> liquorCombiPostList = liquorCombiPostService.findByCategory(category_id);
 
         List<LiquorCombiPostResponseDTO.LiquirCombiDTO> liquorCombiPosts = LiquorCombiPostConverter.toLiquorCombiDTO(liquorCombiPostList);
         return ApiResponse.onSuccess(liquorCombiPosts);
     }
+
+}

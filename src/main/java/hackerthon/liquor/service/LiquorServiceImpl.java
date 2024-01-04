@@ -81,11 +81,21 @@ public class LiquorServiceImpl implements LiquorService{
     @Override
     public Optional<LiquorCombiPost> findById(Long postId) {
         return liquorCombiPostRepository.findById(postId);
-      
+    }
+
+    @Override
+    public List<Liquor> findAll() {
+        return liquorRepository.findAll();
+    }
+
     @Override
     public List<Liquor> getLiquorList() {
         List<Liquor> liquorList = liquorRepository.findAll();
         return liquorList;
+    }
 
+    @Override
+    public List<Liquor> findByCategoryId(Long categoryId) {
+        return liquorRepository.findByCategoryId(categoryId);
     }
 }

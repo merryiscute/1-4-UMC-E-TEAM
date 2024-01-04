@@ -1,4 +1,4 @@
-package hackerthon.liquor.service.LiquorFoodPostService;
+package hackerthon.liquor.service;
 
 import hackerthon.liquor.domain.LiquorFoodPost;
 
