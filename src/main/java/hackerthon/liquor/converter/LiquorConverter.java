@@ -66,6 +66,7 @@ public class LiquorConverter {
                                 .price(liquor.getPrice())
                                 .tag(liquor.getTag())
                                 .volume(liquor.getVolume())
+                                .picture(liquor.getPicture())
                                 .build()
                 ).collect(Collectors.toList());
 
@@ -105,21 +106,5 @@ public class LiquorConverter {
                 .likes(liquorFoodPost.getLikes())
                 .commentList(commentDTOList)
                 .build();
-    }
-
-    public static List<LiquorResponseDTO.liquorDetailDTO> toliquorDetailDTO(List<Liquor> liquors) {
-
-        return liquors.stream()
-                .map(liquor ->
-                        LiquorResponseDTO.liquorDetailDTO.builder()
-                                .Liquor_Id(liquor.getId())
-                                .name(liquor.getName())
-                                .percent(liquor.getPercent())
-                                .price(liquor.getPrice())
-                                .tag(liquor.getTag())
-                                .volume(liquor.getVolume())
-                                .build()
-                ).collect(Collectors.toList());
-
     }
 }
