@@ -68,6 +68,7 @@ public class LiquorConverter {
                 .map(LiquorConverter::toCommentDTO).collect(Collectors.toList());
 
         return LiquorResponseDTO.liquorCombiPostDTO.builder()
+                .id(liquorCombiPost.getId())
                 .title(liquorCombiPost.getTitle())
                 .tag(liquorCombiPost.getTag())
                 .contents(liquorCombiPost.getContents())
@@ -82,6 +83,7 @@ public class LiquorConverter {
                 .map(LiquorConverter::toCommentDTO).collect(Collectors.toList());
 
         return LiquorResponseDTO.liquorFoodPostDTO.builder()
+                .id(liquorFoodPost.getId())
                 .title(liquorFoodPost.getTitle())
                 .tag(liquorFoodPost.getTag())
                 .contents(liquorFoodPost.getContents())

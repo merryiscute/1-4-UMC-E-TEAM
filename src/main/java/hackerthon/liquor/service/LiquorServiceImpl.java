@@ -10,16 +10,20 @@ import hackerthon.liquor.repository.LiquorFoodPostRepository;
 import hackerthon.liquor.repository.LiquorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class LiquorServiceImpl implements LiquorService{
-    private LiquorRepository liquorRepository;
-    private LiquorCombiPostRepository liquorCombiPostRepository;
-    private LiquorFoodPostRepository liquorFoodPostRepository;
-    private CommentRepository commentRepository;
+
+    private final LiquorRepository liquorRepository;
+    private final LiquorCombiPostRepository liquorCombiPostRepository;
+    private final LiquorFoodPostRepository liquorFoodPostRepository;
+    private final CommentRepository commentRepository;
 
     @Override
     public Liquor findLiquor(Long liquorId) {
@@ -43,6 +47,7 @@ public class LiquorServiceImpl implements LiquorService{
     }
 
     @Override
+    @Transactional
     public LiquorCombiPost findLCPost(Long postId) {
         LiquorCombiPost liquorCombiPost = liquorCombiPostRepository.findById(postId).get();
 
@@ -57,9 +62,23 @@ public class LiquorServiceImpl implements LiquorService{
     }
 
     @Override
-    public List<Comment> getCommentList(Long postId) {
-        List<Comment> commentList = commentRepository.findAllById(postId);
+    public List<Comment> getLCComment(Long postId) {
+        LiquorCombiPost liquorCombiPost = liquorCombiPostRepository.findById(postId).get();
+        List<Comment> commentList = commentRepository.findAllByLiquorCombiPost(liquorCombiPost);
 
         return commentList;
+    }
+
+    @Override
+    public List<Comment> getLFComment(Long postId) {
+        LiquorFoodPost liquorFoodPost = liquorFoodPostRepository.findById(postId).get();
+        List<Comment> commentList = commentRepository.findAllByLiquorFoodPost(liquorFoodPost);
+
+        return commentList;
+    }
+
+    @Override
+    public Optional<LiquorCombiPost> findById(Long postId) {
+        return liquorCombiPostRepository.findById(postId);
     }
 }

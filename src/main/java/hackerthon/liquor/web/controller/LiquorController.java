@@ -7,6 +7,7 @@ import hackerthon.liquor.domain.Liquor;
 import hackerthon.liquor.domain.LiquorCombiPost;
 import hackerthon.liquor.domain.LiquorFoodPost;
 import hackerthon.liquor.service.LiquorService;
+import hackerthon.liquor.validation.anotation.ExistPost;
 import hackerthon.liquor.web.dto.LiquorResponseDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -46,9 +47,9 @@ public class LiquorController {
     @Parameters({
             @Parameter(name = "postId", description = "술 꿀조합 게시글 아이디, path variable 입니다!")
     })
-    public ApiResponse<LiquorResponseDTO.liquorCombiPostDTO> getLiquorCombiPost(@PathVariable(name = "postId") Long postId){
+    public ApiResponse<LiquorResponseDTO.liquorCombiPostDTO> getLiquorCombiPost(@ExistPost @PathVariable(name = "postId") Long postId){
         LiquorCombiPost liquorCombiPost = liquorService.findLCPost(postId);
-        List<Comment> commentList = liquorService.getCommentList(postId);
+        List<Comment> commentList = liquorService.getLCComment(postId);
 
         return ApiResponse.onSuccess(LiquorConverter.toLiquorCombiPostDTO(liquorCombiPost, commentList));
     }
@@ -60,7 +61,7 @@ public class LiquorController {
     })
     public ApiResponse<LiquorResponseDTO.liquorFoodPostDTO> getLiquorFoodPost(@PathVariable(name = "postId") Long postId){
         LiquorFoodPost liquorFoodPost = liquorService.findLFPost(postId);
-        List<Comment> commentList = liquorService.getCommentList(postId);
+        List<Comment> commentList = liquorService.getLFComment(postId);
 
         return ApiResponse.onSuccess(LiquorConverter.toLiquorFoodPostDTO(liquorFoodPost, commentList));
     }

@@ -1,6 +1,7 @@
 package hackerthon.liquor.web.dto;
 
 import hackerthon.liquor.domain.Comment;
+import hackerthon.liquor.validation.anotation.ExistPost;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
