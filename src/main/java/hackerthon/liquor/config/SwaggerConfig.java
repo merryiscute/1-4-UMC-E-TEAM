@@ -1,4 +1,4 @@
-package hackerthon.alcohol.config;
+package hackerthon.liquor.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 public class SwaggerConfig {
 
     @Bean
-    public OpenAPI HachkerthonAPI() {
+    public OpenAPI UMCstudyAPI() {
         Info info = new Info()
                 .title("UMC Hackerthon API")
                 .description("UMC Hackerthon API 명세서")
@@ -36,5 +36,4 @@ public class SwaggerConfig {
                 .addSecurityItem(securityRequirement)
                 .components(components);
     }
-
 }

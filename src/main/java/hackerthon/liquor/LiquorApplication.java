@@ -1,13 +1,13 @@
-package hackerthon.alcohol;
+package hackerthon.liquor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AlcoholApplication {
+public class LiquorApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AlcoholApplication.class, args);
+		SpringApplication.run(LiquorApplication.class, args);
 	}
 
 }

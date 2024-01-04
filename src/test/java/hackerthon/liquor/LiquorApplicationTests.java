@@ -1,10 +1,10 @@
-package hackerthon.alcohol;
+package hackerthon.liquor;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AlcoholApplicationTests {
+class LiquorApplicationTests {
 
 	@Test
 	void contextLoads() {
